@@ -1,14 +1,15 @@
 <h1 id="hero_title"></h1>
-<p id="about_text">{{/content/about_text}}</p>
+<p id="about_text"></p>
 
-<p data-edit="about_sub_text">Ths is sub text</p>
+<p id="about_sub_text"></p>
 
-<img href="{{abc.png}}"
 <script>
 fetch('/content/content.json')
   .then(res => res.json())
   .then(data => {
     document.getElementById('hero_title').innerText = data.hero_title;
     document.getElementById('about_text').innerText = data.about_text;
-  });
+    document.getElementById('about_sub_text').innerText = data.about_sub_text;
+
+});
 </script>
