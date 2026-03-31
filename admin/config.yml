@@ -2,6 +2,7 @@ backend:
   name: github
   repo: abhishekSonawane97/foundation
   branch: main
+  auth_type: implicit
 
 media_folder: "assets"
 public_folder: "/assets"
