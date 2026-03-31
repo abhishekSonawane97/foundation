@@ -2,7 +2,6 @@ backend:
   name: github
   repo: abhishekSonawane97/foundation
   branch: main
-  base_url: https://api.netlify.com
 
 media_folder: "assets"
 public_folder: "/assets"
