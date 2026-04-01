@@ -21,5 +21,7 @@ const copyFolder = (src, dest) => {
 };
 
 copyFolder('./assets', './dist/assets');
+copyFolder('./admin', './dist/admin');
 
+console.log('✅ Admin copied');
 console.log('✅ Assets copied');
