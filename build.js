@@ -1,24 +1,25 @@
-const fs = require('fs');
+// copy assets folder to dist
+const fsExtra = require('fs');
 
-// read template
-const template = fs.readFileSync('./index.html', 'utf-8');
+const copyFolder = (src, dest) => {
+  if (!fsExtra.existsSync(dest)) {
+    fsExtra.mkdirSync(dest, { recursive: true });
+  }
 
-// read content
-const content = JSON.parse(fs.readFileSync('./content/content.json', 'utf-8'));
+  const files = fsExtra.readdirSync(src);
 
-// replace placeholders
-let output = template;
+  files.forEach(file => {
+    const srcPath = `${src}/${file}`;
+    const destPath = `${dest}/${file}`;
 
-Object.keys(content).forEach(key => {
-  const regex = new RegExp(`{{${key}}}`, 'g');
-  output = output.replace(regex, content[key]);
-});
+    if (fsExtra.lstatSync(srcPath).isDirectory()) {
+      copyFolder(srcPath, destPath);
+    } else {
+      fsExtra.copyFileSync(srcPath, destPath);
+    }
+  });
+};
 
-// write final HTML
-if (!fs.existsSync('./dist')) {
-  fs.mkdirSync('./dist');
-}
+copyFolder('./assets', './dist/assets');
 
-fs.writeFileSync('./dist/index.html', output);
-
-console.log('Build complete');
+console.log('✅ Assets copied');
