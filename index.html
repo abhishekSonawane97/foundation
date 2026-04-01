@@ -1,5 +1,6 @@
-<img src="" alt="hero-img"/>
 <h1 id="hero_title"></h1>
+<img id="hero_image" />
+
 <p id="about_text"></p>
 
 <p id="about_sub_text"></p>
@@ -13,4 +14,11 @@ fetch('/content/content.json')
     document.getElementById('about_sub_text').innerText = data.about_sub_text;
 
 });
+</script>
+<script>
+fetch('/content/content.json')
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('hero_image').src = data.hero_image;
+  });
 </script>
