@@ -2,7 +2,7 @@
   "meta_title": "My Website",
   "hero_title": "Build Better Spaces",
   "hero_subtitle": "We help you design modern homes",
-  "hero_image": "../assets/people.jpg",
+  "hero_image": "/assets/people.jpg",
   "about_text": "About content",
   "about_sub_text": "More about content"
 }
