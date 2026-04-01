@@ -16,5 +16,6 @@ collections:
         file: "content/content.json"
         fields:
           - { label: "Hero Title", name: "hero_title", widget: "string" }
-          - { label: "About Text", name: "about_text", widget: "text" }
+          - { label: "Hero Image", name: "hero_image", widget: "image" }
+          - { label: "About Text", name: "about_text", widget: "markdown" }
           - { label: "About Sub Text", name: "about_sub_text", widget: "text" }
